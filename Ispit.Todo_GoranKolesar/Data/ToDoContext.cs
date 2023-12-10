@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Ispit.Todo_GoranKolesar.Data
 {
-    public class ToDoContext : DbContext
+    public class ToDoContext : IdentityDbContext
     {
         public ToDoContext(DbContextOptions<ToDoContext> options)
             : base(options)
@@ -17,6 +17,8 @@ namespace Ispit.Todo_GoranKolesar.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Category>().HasData(
                     new Category { CategoryId = "work", Name="Work"},
                     new Category { CategoryId = "home", Name = "Home" },

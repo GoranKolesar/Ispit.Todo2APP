@@ -26,5 +26,7 @@ namespace Ispit.Todo_GoranKolesar.Models
         public Status Status { get; set; } = null!;
 
         public bool Overdue => StatusId == "open" && DueDate < DateTime.Today;
+
+        public string UserId { get; set; } = string.Empty;
     }
 }
